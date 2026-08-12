@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "saif.system-stats",
+  "name": "System Stats",
+  "version": "1.0.0",
+  "author": "Saif Omar",
+  "description": "CPU, temperature, and memory monitor with a hover popup and btop launcher",
+  "license": "MIT",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "SystemStats.qml"
+  },
+  "barWidget": {
+    "displayName": "System Stats",
+    "description": "CPU, temperature, and memory monitor with a hover popup",
+    "category": "System",
+    "allowMultiple": false
+  }
+}
