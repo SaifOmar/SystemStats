@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "saif.system-stats",
   "name": "System Stats",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "author": "Saif Omar",
-  "description": "CPU, temperature, and memory monitor with a hover popup and btop launcher",
+  "description": "CPU, temperature, memory, disk, uptime, and live network monitor with usage bars, history graphs, and a btop launcher",
   "license": "MIT",
   "kinds": [
     "bar-widget"
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "System Stats",
-    "description": "CPU, temperature, and memory monitor with a hover popup",
+    "description": "CPU, temperature, memory, disk, uptime, and network monitor with a hover popup",
     "category": "System",
     "allowMultiple": false
   }
