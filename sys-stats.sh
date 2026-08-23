@@ -6,7 +6,7 @@ import time
 
 REAL_FS = {
     "ext2", "ext3", "ext4", "btrfs", "xfs", "f2fs", "zfs",
-    "exfat", "ntfs3", "vfat", "fat32", "f2fs",
+    "exfat", "ntfs3", "vfat",
 }
 
 
@@ -148,16 +148,19 @@ def meminfo():
 
 
 def temp():
-    for f in glob.glob("/sys/class/hwmon/hwmon*/temp1_input"):
-        base = os.path.dirname(f)
+    for path in glob.glob("/sys/class/hwmon/hwmon*/temp1_input"):
+        base = os.path.dirname(path)
         try:
-            chip = open(base + "/name").read().strip()
+            with open(base + "/name") as fh:
+                chip = fh.read().strip()
         except Exception:
             chip = ""
         if chip in ("coretemp", "k10temp", "zenpower", "cpu_thermal"):
-            return round(int(open(f).read().strip()) / 1000)
-    for f in glob.glob("/sys/class/hwmon/hwmon*/temp1_input"):
-        return round(int(open(f).read().strip()) / 1000)
+            with open(path) as fh:
+                return round(int(fh.read().strip()) / 1000)
+    for path in glob.glob("/sys/class/hwmon/hwmon*/temp1_input"):
+        with open(path) as fh:
+            return round(int(fh.read().strip()) / 1000)
     return 0
 
 
