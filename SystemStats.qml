@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Io
 import qs.Ui
 import qs.Commons
+import qs.Commons as Commons
 
 BarWidget {
     id: root
@@ -21,10 +22,10 @@ BarWidget {
 
     readonly property int maxSamples: Math.max(5, Math.round(historySeconds * 1000 / refreshMs))
 
-    readonly property color fg: root.bar ? root.bar.foreground : Color.foreground
+    readonly property color fg: root.bar ? root.bar.foreground : Commons.Color.foreground
     readonly property color dim: Qt.darker(root.fg, 1.55)
-    readonly property color urgent: root.bar ? root.bar.urgent : Color.urgent
-    readonly property color track: Style.selectedFillFor(root.fg, Color.accent)
+    readonly property color urgent: root.bar ? root.bar.urgent : Commons.Color.urgent
+    readonly property color track: Style.selectedFillFor(root.fg, Commons.Color.accent)
     readonly property string heroFont: root.bar ? root.bar.fontFamily : Style.font.family
 
     property int summaryLineIndex: 0
@@ -290,8 +291,8 @@ BarWidget {
                     formatter: root.formatSpeed
                     series: [{
                             "key": "up",
-                            "fill": root.alpha(Color.accent, 0.35),
-                            "stroke": root.alpha(Color.accent, 0.8)
+                            "fill": root.alpha(Commons.Color.accent, 0.35),
+                            "stroke": root.alpha(Commons.Color.accent, 0.8)
                         }, {
                             "key": "down",
                             "fill": root.alpha(root.fg, 0.3),
